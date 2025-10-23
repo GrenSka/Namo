@@ -22,7 +22,7 @@ app.use(session({
 
 // Only two users
 const users = {
-  'Namo<33': 'MyPrettyBoy<3',
+  'Henrik<33': 'MyPrettyBoy<3',
   'admin': 'lovemaster'
 };
 
@@ -61,14 +61,14 @@ app.post('/message', (req, res) => {
     fs.writeFileSync('messages.json', JSON.stringify(messages));
     res.redirect('/');
   } else {
-    res.send('Only Namo<33 can send messages 💌');
+    res.send('Only Henrik<33 can send messages 💌');
   }
 });
 
 // Message viewing
 app.get('/messages', (req, res) => {
   if (req.session.user === 'Nana<33') {
-    const visibleMessages = messages.filter(m => m.user !== 'Namo<33');
+    const visibleMessages = messages.filter(m => m.user !== 'Henrik<33');
     res.json(visibleMessages);
   } else if (req.session.user === 'admin') {
     res.json(messages);
