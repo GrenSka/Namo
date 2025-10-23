@@ -51,9 +51,9 @@ app.get('/logout', (req, res) => {
 
 // Message submission
 app.post('/message', (req, res) => {
-  if (req.session.user === 'Nana<33') {
+  if (req.session.user === 'Henrik<33') {
     const newMessage = {
-      user: 'Nana<33',
+      user: 'Henrik<33',
       text: req.body.message,
       time: new Date().toISOString()
     };
@@ -67,7 +67,7 @@ app.post('/message', (req, res) => {
 
 // Message viewing
 app.get('/messages', (req, res) => {
-  if (req.session.user === 'Nana<33') {
+  if (req.session.user === 'Henrik<33') {
     const visibleMessages = messages.filter(m => m.user !== 'Henrik<33');
     res.json(visibleMessages);
   } else if (req.session.user === 'admin') {
